@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function ProductItem() {
+function ProductItem({handleAddToCart}) {
   const { id } = useParams();
 
   const [product, setProduct] = useState(null);
@@ -19,10 +19,6 @@ function ProductItem() {
 
     fetchSingleProduct();
   }, [id]);
-
-  const handleAddToCart = () => {
-    console.log("Added to cart:", product);
-  };
 
   if (!product) {
     return <h2>Loading...</h2>;
@@ -42,7 +38,7 @@ function ProductItem() {
 
       <h3>${product.price}</h3>
 
-      <button onClick={handleAddToCart}>
+      <button onClick={() => handleAddToCart(product)}>
         Add to Cart
       </button>
     </div>

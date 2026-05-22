@@ -1,16 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function Header() {
     return(
-        <>
-            <h1>Shoppy Globe</h1>
-            <h3>HOME</h3>
-            <h3>product List</h3>
-            <div>
-                <FontAwesomeIcon icon={faCartShopping} />
-            </div>
-        </>
+        <div>
+            <Link to="/">
+            Home
+            </Link>
+            <Link to="/cart">Cart</Link>
+        </div>
     )
 }
 
