@@ -68,6 +68,15 @@ const decreaseQuantity = (id) => {
   setCart(updatedCart);
 };
 
+const removeFromCart = (id) => {
+
+  const updatedCart = cart.filter(
+    (item) => item.id !== id
+  );
+
+  setCart(updatedCart);
+};
+
   return (
     <>
       <Header cartCount={cart.length}/>
@@ -77,7 +86,7 @@ const decreaseQuantity = (id) => {
           <Route path="/product/:id" element={<ProductItem handleAddToCart={handleAddToCart} />}  />
 
           <Route path="/cart"
-          element= {<Cart cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />} />
+          element= {<Cart cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />} />
         </Routes>
       
     </>
