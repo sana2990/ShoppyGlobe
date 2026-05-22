@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header cartCount={cart.length}/>
         <Routes>
           <Route path="/" element={<ProductList />} />
 
