@@ -1,4 +1,7 @@
+**************************************GitHub Link**************************************************
+https://github.com/sana2990/ShoppyGlobe/tree/main/shoppyglobe
 
+*****************************About Application*****************************************************
 The application contains multiple pages connected through React Router. Users can navigate between:
 
 Home page
