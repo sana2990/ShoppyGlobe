@@ -1,6 +1,8 @@
 import { useSelector,useDispatch } from "react-redux";
 
 import { increaseQuantity, decreaseQuantity, removeFromCart } from "../utils/cartSlice";
+import Checkout from "./Checkout";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
 
@@ -8,6 +10,7 @@ function Cart() {
     );
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const totalPrice = cart.reduce(
       (total, item) =>
@@ -24,6 +27,21 @@ function Cart() {
               Total: ${totalPrice.toFixed(2)}
             </h2>
 
+            {cart.length > 0 && (
+
+        <button
+          style={{
+            padding: "10px 20px",
+            marginBottom: "20px",
+            cursor: "pointer"
+          }}
+          onClick={() =>
+            navigate("/checkout", {
+            state: {cart,totalPrice,},})}>
+              Checkout
+        </button>
+
+)}
             {cart.length === 0 ? (
 
                 <h3>Cart is empty</h3>
@@ -73,11 +91,13 @@ function Cart() {
                         >
                           Remove
                         </button>
-
                     </div>
+                    
                 ))
+                
             )}
-
+            
+            
         </div>
     );
 }

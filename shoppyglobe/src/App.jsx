@@ -9,6 +9,7 @@ const Error = lazy(() => import('./components/Error'));
 
 import {Routes, Route} from "react-router-dom";
 import Cart from './components/Cart'
+import Checkout from './components/Checkout';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
 
           <Route path="/cart"
           element= {<Cart />} />
+
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*"
             element={<Error />} />
         </Routes>
