@@ -1,8 +1,11 @@
 import './App.css'
-import Header from './components/Header'
-import ProductList from './components/ProductList'
-import ProductItem from './components/ProductItem'
-import Error from './components/Error'
+
+import {lazy, Suspense} from "react";
+
+const Header = lazy(() =>   import('./components/Header'));
+const ProductList = lazy(() => import('./components/ProductList'));
+const ProductItem = lazy(() => import('./components/ProductItem'));
+const Error = lazy(() => import('./components/Error'));
 
 import {Routes, Route} from "react-router-dom";
 import Cart from './components/Cart'
@@ -11,6 +14,7 @@ function App() {
 
   return (
     <>
+      <Suspense fallback={<h1>Loading...</h1>}></Suspense>
       <Header />
         <Routes>
           <Route path="/" element={<ProductList />} />
@@ -20,7 +24,7 @@ function App() {
           <Route path="/cart"
           element= {<Cart />} />
           <Route path="*"
-            element={<ErrorPage />} />
+            element={<Error />} />
         </Routes>
       
     </>
