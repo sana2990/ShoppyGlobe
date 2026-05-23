@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import "./Checkout.css";
 
 function Checkout() {
 
@@ -7,7 +8,7 @@ function Checkout() {
     const { cart, totalPrice } = location.state;
     return (
 
-        <div>
+        <div class="checkout">
 
             <h1>Checkout</h1>
 
@@ -32,6 +33,14 @@ function Checkout() {
                 </div>
 
             ))}
+            <div className="payment">
+                <h3>Payment: </h3>
+                <button>Pay Using Credit/Debit Card</button>
+                <br />
+                <button>Pay Using any UPI</button>
+                <br />
+                <button>Pay using COD</button>
+            </div>
 
         </div>
             
